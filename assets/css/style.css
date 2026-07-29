@@ -1108,6 +1108,41 @@ textarea.form-control {
   transform: translateY(-2px);
 }
 
+.group-brm-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  color: var(--verde-menta);
+  text-decoration: none;
+  max-width: 340px;
+}
+
+.group-brm-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--verde-menta);
+  color: var(--branco);
+  transform: translateY(-2px);
+}
+
+.group-brm-link img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.group-brm-link span {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 30px;
