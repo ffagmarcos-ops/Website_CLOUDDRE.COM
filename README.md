@@ -105,6 +105,33 @@ Como o site é 100% estático (HTML, CSS, JS e imagens), ele pode ser hospedado 
 
 ---
 
+## 🐳 Deploy no Portainer (Traefik + Docker Compose)
+
+Este projeto agora inclui os arquivos:
+
+- `Dockerfile` (Nginx para site estático)
+- `nginx.conf` (cache de assets e fallback para `index.html`)
+- `docker-compose.yml` (stack para Traefik com domínio `clouddre.com`)
+- `.dockerignore`
+
+### Como subir no Portainer
+
+1. No Portainer, crie uma nova **Stack** com nome único, por exemplo: `clouddre-site`.
+2. Use o `docker-compose.yml` deste repositório.
+3. Garanta que a rede externa `traefik` já exista no host.
+4. Faça o deploy da stack.
+
+### Boas práticas para não gerar duplicidade/interrupção
+
+- Não defina `container_name` fixo (evita conflito com outros projetos).
+- Não publique portas (`ports`) quando estiver atrás do Traefik.
+- Não use volume persistente para este site estático (evita estado duplicado e conflitos de arquivos).
+- Mantenha nomes únicos nos labels/routers Traefik (`clouddre-*`).
+- Evite duas stacks apontando para o mesmo domínio ao mesmo tempo.
+
+
+---
+
 ## 🛡️ Licença e Direitos
 
 Desenvolvido para **CLOUDDRE Contabilidade Inteligente**. Todos os direitos reservados.
